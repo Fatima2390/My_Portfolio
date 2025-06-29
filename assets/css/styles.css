@@ -1,0 +1,629 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+  /*========== Colors ==========*/
+  --hue: 210; /* Blue base hue */
+  --first-color: hsl(var(--hue), 60%, 55%); /* Soft blue */
+  --first-color-light: hsl(var(--hue), 70%, 65%);
+  --first-color-alt: hsl(var(--hue), 50%, 45%);
+  --title-color: hsl(var(--hue), 20%, 90%);
+  --text-color: hsl(var(--hue), 10%, 80%);
+  --text-color-light: hsl(var(--hue), 10%, 70%);
+  --body-color: hsl(var(--hue), 20%, 10%); /* Dark gray */
+  --container-color: hsl(var(--hue), 20%, 20%); /* Medium gray */
+
+  /*========== Font and typography ==========*/
+  --body-font: "Poppins", sans-serif;
+  --biggest-font-size: 3rem;
+  --big-font-size: 1.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+
+/*========== Responsive typography==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 5.5rem;
+    --big-font-size: 2.75rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1.125rem;
+    --small-font-size: 0.875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+input,
+button,
+textarea {
+  border: none;
+  outline: none;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+p {
+  line-height: 130%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: var(--first-color);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: 300;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding-block: 5rem 2rem;
+}
+
+.section__title {
+  text-align: center;
+  font-size: 45px;
+  font-weight: var(--font-bold);
+  margin-bottom: 2rem;
+  color: #ffffff; /* White color for black background */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  font-family: "Poppins", sans-serif; /* Modern font style */
+  letter-spacing: 0.5px; /* Slight spacing for readability */
+}
+
+
+.main {
+  overflow: hidden;
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--container-color);
+  display: flex;
+  align-items: center;
+  z-index: var(--z-fixed);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav__item {
+  display: inline;
+}
+
+.nav__link {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-regular);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.nav__link:hover {
+  background-color: var(--first-color-alt);
+  color: var(--title-color);
+}
+
+/*=============== HOME ===============*/
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--first-color-light), var(--first-color-alt));
+}
+
+.home__title {
+  font-size: var(--biggest-font-size);
+  color: var(--title-color);
+  margin-bottom: 1rem;
+}
+
+.home__description {
+  font-size: var(--h2-font-size);
+  margin-bottom: 2rem;
+  font-family: cursive;
+
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  font-size: var(--normal-font-size);
+  background-color: var(--first-color);
+  color: var(--title-color);
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  /* background-color: var(--first-color-alt); */
+  background-color: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+}
+/*==================== INFO SECTION ====================*/
+.info {
+  text-align: center;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.section__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333333;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeSlideIn 1.2s ease-in-out forwards;
+}
+
+.info__description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #666666;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  transition: transform 0.5s, color 0.3s;
+}
+
+.info__description:hover {
+  transform: scale(1.05);
+  color: #333333;
+}
+
+/*==================== ANIMATIONS ====================*/
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Skills Section Styling */
+.skills {
+  text-align: center;
+  padding: 2rem;
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.section__title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.skills__scroll {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.skills__logos {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 20s linear infinite;
+}
+
+.skill {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.skill__logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+
+.skill__logo:hover {
+  transform: scale(1.2);
+}
+
+.skill p {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-top: 0.5rem;
+}
+
+/* Continuous Scrolling Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.work__links {
+  margin-top: 1rem;
+}
+
+.work__link {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #333333;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.work__link:hover {
+  background-color: #555555;
+  transform: scale(1.05);
+}
+
+/*=============== WORKS ===============*/
+.work__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.work__item {
+  padding: 1.5rem;
+  background-color: var(--container-color);
+  border-radius: 0.75rem;
+  font-family: cursive;
+
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.work__item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.work__item img {
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/*==================== WORKS ====================*/
+.work__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.work__item {
+  background-color: #111111;
+  border-radius: 0.75rem;
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.work__item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.work__item img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.work__title {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.work__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.work__button {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #3a3a3a;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.work__button:hover {
+  background-color: #5a5a5a;
+  transform: scale(1.05);
+}
+
+.work__button.github {
+  background-color: #6e5494;
+}
+
+.work__button.github:hover {
+  background-color: #8a6fbf;
+}
+
+
+.info__description {
+  font-size: var(--h2-font-size);
+  margin: 0 auto;
+  max-width: 900px;
+  font-family: cursive;
+}
+
+/*=============== SERVICES ===============*/
+.services__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.services__item {
+  padding: 1.5rem;
+  background-color: var(--container-color);
+  border-radius: 0.75rem;
+  font-family: cursive;
+
+  text-align: center;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.services__item:hover {
+  transform: translateY(-10px);
+  background-color: var(--first-color-alt);
+}
+
+.services__icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--first-color);
+}
+
+.services__title {
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+}
+
+.services__description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color-light);
+}
+
+/*=============== CONTACT ===============*/
+.contact__container {
+  display: grid;
+  gap: 2rem;
+}
+
+.contact__description {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: var(--h2-font-size);
+}
+
+.contact__info {
+  text-align: center;
+}
+
+.contact__info h3 {
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.5rem;
+}
+
+.contact__info p {
+  font-size: var(--normal-font-size);
+}
+
+.contact__form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact__input {
+  padding: 0.75rem 1rem;
+  font-size: var(--normal-font-size);
+  border-radius: 0.5rem;
+  background-color: var(--container-color);
+  color: var(--text-color);
+}
+
+.contact__input::placeholder {
+  color: var(--text-color-light);
+}
+
+.contact__button {
+  padding: 0.75rem 1.5rem;
+  font-size: var(--normal-font-size);
+  background-color: var(--first-color);
+  color: var(--title-color);
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.contact__button:hover {
+  background-color: var(--first-color-alt);
+}
+
+/*=============== FOOTER ===============*/
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--container-color);
+  color: var(--text-color-light);
+}
+
+.footer p {
+  font-size: var(--small-font-size);
+}
+
+/*=============== SCROLL UP ===============*/
+.scroll-up {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--first-color);
+  color: var(--title-color);
+  padding: 0.75rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: none;
+  z-index: var(--z-fixed);
+}
+
+.scroll-up.active {
+  display: block;
+}
+/*=============== EDUCATION ===============*/
+.education {
+  padding-block: 5rem 2rem;
+}
+
+.education__container {
+  display: grid;
+  grid-template-columns: 1fr; /* Ensures a single card per row */
+  gap: 2rem;
+}
+
+.education__item {
+  width: 100%; /* Ensures the card takes the full width */
+  max-width: 100%; /* Prevents any unexpected width overflow */
+  margin: 0 auto; /* Centers the card horizontally */
+  padding: 20px;
+  font-family: cursive;
+
+  box-shadow: 0 6px 12px rgba(38, 134, 212, 0.3);
+
+}
+
+
+.education__item:hover {
+  transform: translateY(-10px);
+  background-color: var(--first-color-alt);
+}
+
+.education__degree {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  font-weight: var(--font-bold);
+  margin-bottom: 0.5rem;
+}
+
+.education__institute {
+  font-size: var(--normal-font-size);
+  color: var(--text-color-light);
+  margin-bottom: 0.5rem;
+}
+
+.education__year {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
